@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Contacts App": {
+            "applicationId": "kVqHCVfsb0i4JFUfAYw47QIP4rKG582t1O2PWfGc", 
+            "masterKey": "dygu4WgVedDp5iBIIgZ9UbwVn7vLJ1BSl3IBfDq4"
+        }, 
+        "_default": {
+            "link": "Contacts App"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.12"
+    }
+}

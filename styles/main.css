@@ -1,0 +1,18 @@
+html, body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.login {
+  margin: 30px auto;
+  float: none;
+}
+
+.center {
+  margin: 0 auto;
+}

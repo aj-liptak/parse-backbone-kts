@@ -1,0 +1,30 @@
+{
+  "name": "USFChicagoCustomerMPO",
+  "description": "US Foods Mobile Ordering",
+  "version": "0.1.0",
+  "author": "West Monroe Partners",
+  "homepage": "http://www.westmonroepartners.com",
+  "repository": {
+    "type": "svn",
+    "url": "svn.westmonroepartners.com/svnldap/Clients/U-V/USF/USF-Chicago-Customer-MPO"
+  },
+  "dependencies": {
+    "jquery": "1.7.x",
+    "connect": "~2.7.3"
+  },
+  "devDependencies": {
+    "grunt-css": "*",
+    "grunt-contrib-imagemin": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-sass": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-connect": "~0.2.0",
+    "grunt-contrib-nodeunit": "*",
+    "grunt-contrib-watch": "*",
+    "grunt": "~0.4.0"
+  }
+}
