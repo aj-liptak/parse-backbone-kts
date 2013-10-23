@@ -47,7 +47,7 @@ define([
 
         user.signUp(null, {
           success: function(user) {
-            console.log(user);
+            that.goToContacts();
           },
           error: function(user, error) {
             // Show the error message somewhere and let the user try again.
@@ -72,6 +72,11 @@ define([
       e.stopPropagation();
       this.$el.unbind('click');
       Parse.history.navigate('login', true);
+    },
+
+    goToContacts: function () {
+      this.$el.unbind('click');
+      Parse.history.navigate('contacts', true);
     }
   });
 

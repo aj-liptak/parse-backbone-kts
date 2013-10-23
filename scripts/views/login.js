@@ -14,18 +14,25 @@ define([
     el: $('#container'),
 
     render: function(){
-      // Using Underscore we can compile our template with data
-      var data = {};
-      var compiledTemplate = _.template( LoginTemplate, data );
-      // Append our compiled template to this Views "el"
-      //this.$el.append( compiledTemplate );
-      Animate.slideIn(this.el, compiledTemplate);
+
+      if(this.userIsLoggedIn()){
+         this.goToContacts();
+      } else {
+        // Using Underscore we can compile our template with data
+        var data = {};
+        var compiledTemplate = _.template( LoginTemplate, data );
+        // Append our compiled template to this Views "el"
+        //this.$el.append( compiledTemplate );
+        Animate.slideIn(this.el, compiledTemplate);
+      }
+
     },
 
     events: {
       'click input[data-name="login"]': "loginUser",
       'click input[data-name="sign-up"]': "goToSignUp"
     },
+
 
     loginUser: function (e) {
       e.stopPropagation();
@@ -55,6 +62,15 @@ define([
       }
     },
 
+    userIsLoggedIn: function () {
+      var user = Parse.User.current();
+      if(user && user.authenticated()){
+        return true;
+      } else {
+        return false;
+      }
+    },
+
     validateInputs: function (username, password) {
 
       username.length < 1 ? this.$('.username-error').show() : this.$('.username-error').hide();
@@ -67,6 +83,11 @@ define([
       e.stopPropagation();
       this.$el.unbind('click');
       Parse.history.navigate('signUp', true);
+    },
+
+    goToContacts: function () {
+      this.$el.unbind('click');
+      Parse.history.navigate('contacts', true);
     }
   });
   // Our module now returns our view

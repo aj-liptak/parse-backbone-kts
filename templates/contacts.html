@@ -1,11 +1,15 @@
 <div class="container">
   <div class="row center">
-    <div class="span6 well center">
+    <div class="span6 well center contacts">
+      <div class="contacts-header">
+        <div class="btn btn-primary icon pull-left" data-name="logout">Logout</div>
+        <div class="btn btn-primary icon pull-right" data-name="newContact">New Contact</div>
+      </div>
       <ul class="thumbnails">
       {{#each contact}}
         <li class="span3 clearfix">
           <div class="thumbnail clearfix">
-            <img src="http://placehold.it/320x200">
+            <img src="parse_kts/imgs/placeholder.jpg">
             <div class="caption" class="pull-left">
               <div class="btn btn-primary icon  pull-right">Edit</div>
               <h4>
@@ -19,5 +23,26 @@
       {{/each}}
       </ul>
     </div>
+
+    <div class="modal fade" id="newContact" tabindex="-1" role="dialog" aria-labelledby="newContact" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">New Contact</h4>
+          </div>
+          <div class="modal-body">
+            <input class="span3" placeholder="First Name" type="text" id="firstName">
+            <input class="span3" placeholder="Last Name" type="text" id="lastName">
+            <input class="span3" placeholder="Phone Number" type="text" id="phoneNumber">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-name="close">Close</button>
+            <button type="button" class="btn btn-primary" data-name="saveContact">Save Contact</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
   </div>
 </div>

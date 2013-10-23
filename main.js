@@ -3,7 +3,8 @@
     "jquery": "scripts/libs/jquery-1.8.3",
     "underscore": "scripts/libs/underscore-amd",
     "parse": "scripts/libs/parse",
-    "handlebars": "scripts/libs/handlebars"
+    "handlebars": "scripts/libs/handlebars",
+    "bootstrap": "scripts/libs/bootstrap/js/bootstrap"
   },
   shim: {
     "parse": {
@@ -13,6 +14,10 @@
 
     "handlebars": {
       exports: "Handlebars"
+    },
+    "bootstrap": {
+      deps: ["jquery"],
+      exports: "Bootstrap"
     }
   }
 });

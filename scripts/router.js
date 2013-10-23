@@ -13,8 +13,7 @@ define([
       // Define some URL routes
       'login': 'showLogin',
       'signUp': 'showSignUp',
-      'contacts': 'showContacts',
-      '*actions': 'errorPage'
+      'contacts': 'showContacts'
     },
 
     showLogin: function() {
@@ -32,13 +31,7 @@ define([
     showContacts: function() {
       var contactsView = new ContactsView();
       contactsView.build();
-    },
-
-    errorPage: function() {
-      var errorView = new ErrorView();
-      errorView.render();
     }
-
 
   });
 
