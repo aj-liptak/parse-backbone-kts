@@ -1,12 +1,12 @@
 {
-  "name": "USFChicagoCustomerMPO",
-  "description": "US Foods Mobile Ordering",
+  "name": "parse-backbone-kts",
+  "description": "KTS covering Parse with BackboneJS",
   "version": "0.1.0",
   "author": "West Monroe Partners",
   "homepage": "http://www.westmonroepartners.com",
   "repository": {
-    "type": "svn",
-    "url": "svn.westmonroepartners.com/svnldap/Clients/U-V/USF/USF-Chicago-Customer-MPO"
+    "type": "git",
+    "url": "https://github.com/aj-liptak/parse-backbone-kts"
   },
   "dependencies": {
     "jquery": "1.7.x",
