@@ -1,9 +1,23 @@
-<div class="span4">
-  <div class="well">
-    <ul class="customers">
+<div class="container">
+  <div class="row center">
+    <div class="span6 well center">
+      <ul class="thumbnails">
       {{#each contact}}
-        <li>{{firstName}}</li>
+        <li class="span3 clearfix">
+          <div class="thumbnail clearfix">
+            <img src="http://placehold.it/320x200">
+            <div class="caption" class="pull-left">
+              <div class="btn btn-primary icon  pull-right">Edit</div>
+              <h4>
+                <div>{{firstName}}</div>
+                <div>{{lastName}}</div>
+                <div>{{phoneNumber}}</div>
+              </h4>
+            </div>
+          </div>
+        </li>
       {{/each}}
-    </ul>
+      </ul>
+    </div>
   </div>
 </div>
