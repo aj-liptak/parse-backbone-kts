@@ -11,7 +11,7 @@ module.exports = function(grunt) {
       files: {
         src: "app/styles/*.css",
         rules: {
-          "import": false,
+          "iwmprt": false,
           "box-model": false,
           "adjoining-classes": false,
           "box-sizing": false,
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
           'app/scripts/services/*.js',
           'app/scripts/views/*.js'
         ],
-        dest: 'dist/scripts/mpo-<%= pkg.version %>.js'
+        dest: 'dist/scripts/dist.js'
       },
       styles: {
         src: [
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
           'app/styles/deliveries.css',
           'app/styles/ipad.css'
         ],
-        dest: 'dist/styles/mpo-<%= pkg.version %>.css'
+        dest: 'dist/styles/main.css'
       }
     },
     uglify: {
@@ -68,9 +68,9 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-          'dist/scripts/mpo-<%= pkg.version %>.min.js': ['dist/scripts/mpo-<%= pkg.version %>.js']
+          'dist/scripts/wmp-<%= pkg.version %>.min.js': ['dist/scripts/wmp-<%= pkg.version %>.js']
         }
-      },
+      }
     },
     watch: {
       files: ['app/styles/*.css', 'app/scripts/**/*.js', 'app/scripts/controllers/*.js'],
@@ -85,18 +85,10 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'app/templates/', src: ['**'], dest: 'dist/templates/', filter: 'isFile'}
         ]
       },
-      icons: {
-        files: [
-          {expand: true, cwd: 'app/images/icons/', src: ['**'], dest: 'dist/images/icons/', filter: 'isFile'},
-          {expand: true, cwd: 'app/images/partner/', src: ['**'], dest: 'dist/images/partner/', filter: 'isFile'},
-          {expand: true, cwd: 'app/images/help/', src: ['**'], dest: 'dist/images/help/', filter: 'isFile'}
-        ]
-      }
-    },
     cssmin: {
       compress: {
         files: {
-          'dist/styles/mpo-<%= pkg.version %>.min.css': ['dist/styles/mpo-<%= pkg.version %>.css']
+          'dist/styles/wmp-<%= pkg.version %>.min.css': ['dist/styles/main.min.css']
         }
       }
     },
@@ -197,37 +189,7 @@ module.exports = function(grunt) {
     spawn('open', ['http://localhost:9000']);
     connect(connect.static('dist')).listen(9000).on('close', done);
   });
-  
-  
-  grunt.registerTask('version', 'Versioning and changing environment', function(environment, version) {
-    if (arguments.length !== 0) {  
-      var fs = require('fs');
-      var contentString;
-      //Change the environment
-      var envData = fs.readFileSync('dist/scripts/mpo-0.1.0.min.js', 'utf8');
-      var envString = 'env: \"' + environment + '\",';
-      contentString = envData.replace(/\s*env:\s*['"](.*?)['"],/g, envString);
-      fs.writeFileSync('dist/scripts/mpo-0.1.0.min.js', contentString, 'utf8');
-      var verString = 'v=' + version;
-      //Change the version
-      var verData = fs.readFileSync('dist/index.html', 'utf8');
-      contentString = verData.replace(/v=1.0/g, 'v=' + version);
-      
-      fs.writeFileSync('dist/index.html', contentString, 'utf8');
-      grunt.log.writeln('Environment Changed to ' + environment + ' v' + version);      
-    }
-  });
-  
-  grunt.registerTask('deploy', 'Start a custom web server.', function() {
-  	require('shelljs/global');
-  	rm('-R','/Volumes/WebContent/sites/MPO/*');
-  	cp('-R', 'dist/*', '/Volumes/WebContent/sites/MPO/');
-    var done = this.async();
-    grunt.log.writeln('Starting web server on port 8000.');
-    var spawn = require('child_process').spawn;
-    spawn('open', ['http://localhost:8000']);
-    connect(connect.static('dist')).listen(8000).on('close', done);
-  });
+
   
 
 };
