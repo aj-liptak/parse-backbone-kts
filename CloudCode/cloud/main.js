@@ -4,7 +4,7 @@ Parse.Cloud.define("getContacts", function(request, response) {
   query.equalTo("user", Parse.User.current());
   query.find({
     success: function(userContacts) {
-      // userPosts contains all of the posts by the current user.
+      // userContacts contains all contacts created by the current user.
       response.success(userContacts);
     },
 
