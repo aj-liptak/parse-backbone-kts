@@ -1,13 +1,9 @@
 {
-  "name": "USFChicagoCustomerMPO",
-  "description": "US Foods Mobile Ordering",
+  "name": "WMP Contacts",
+  "description": "Parse KTS",
   "version": "0.1.0",
   "author": "West Monroe Partners",
   "homepage": "http://www.westmonroepartners.com",
-  "repository": {
-    "type": "svn",
-    "url": "svn.westmonroepartners.com/svnldap/Clients/U-V/USF/USF-Chicago-Customer-MPO"
-  },
   "dependencies": {
     "jquery": "1.7.x",
     "connect": "~2.7.3"
