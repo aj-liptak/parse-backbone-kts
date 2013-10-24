@@ -44,8 +44,6 @@ define([
       var template = Handlebars.compile(ContactsTemplate);
 
       var compiledTemplate = template(contacts);
-      // Append our compiled template to this Views "el"
-      //this.$el.append( compiledTemplate );
       Animate.slideIn(this.el, compiledTemplate);
     },
 
