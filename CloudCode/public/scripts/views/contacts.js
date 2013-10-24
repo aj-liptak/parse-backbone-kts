@@ -20,19 +20,20 @@ define([
     events: {
       'click div[data-name="newContact"]': 'newContact',
       'click button[data-name="saveContact"]': 'saveContact',
-      'click div[data-name="logout"]': 'logout'
+      'click div[data-name="logout"]': 'logout',
+      'click div[data-name="delete"]': 'deleteContact'
     },
 
     build: function() {
       this.user = Parse.User.current();
-      var contactsCollection = new ContactsCollection();
+      this.contactsCollection = new ContactsCollection();
       var that = this;
       // Using Underscore we can compile our template with data
       Parse.Cloud.run('getContacts').then(function(contacts){
         _.each(contacts, function(contact) {
-          contactsCollection.add(contact);
+          that.contactsCollection.add(contact);
         });
-        that.render(contactsCollection);
+        that.render(that.contactsCollection);
       }, function(error) {
         console.log(error);
       });
@@ -72,6 +73,21 @@ define([
           console.log(error);
         }
       });
+    },
+
+    deleteContact: function(e) {
+      e.stopPropagation();
+      var that = this;
+      var contactToRemove = this.contactsCollection.get($(e.currentTarget).closest('li.contact').attr('id'));
+      contactToRemove.destroy({
+        success: function(data) {
+          that.build();
+        },
+        error: function(error){
+          console.log(error);
+        }
+      });
+
     },
 
     logout: function (e) {
